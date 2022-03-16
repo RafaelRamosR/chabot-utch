@@ -1,0 +1,31 @@
+{
+  "name": "chabot-utch",
+  "version": "1.0.0",
+  "description": "Chatbot for the degree thesis at the Universidad Tecnológica del Chocó",
+  "main": "index.js",
+  "scripts": {
+	"dev": "nodemon app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RafaelRamosR/chabot-utch.git"
+  },
+  "keywords": ["chatbot", "tesis", "UTCH"],
+  "author": "Rafael R. Ramos R.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RafaelRamosR/chabot-utch/issues"
+  },
+  "homepage": "https://github.com/RafaelRamosR/chabot-utch#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.21",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
