@@ -2,5 +2,10 @@
   "cSpell.words": [
     "twilio",
     "whatsapp"
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#283015",
+    "titleBar.activeBackground": "#38441E",
+    "titleBar.activeForeground": "#F9FAF4"
+  }
 }
