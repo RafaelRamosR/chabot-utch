@@ -1,9 +1,12 @@
 import twilio from 'twilio';
+import config from 'config';
+import { ITwilioConfig } from '../../interfaces/config';
 
-const ACCOUNT_SID = 'X';
-const AUTH_TOKEN = 'Y';
-const TWILIO_NUMBER_PHONE = '14155238886';
-const twilioInstance = () => twilio(ACCOUNT_SID, AUTH_TOKEN);
+const twilioInstance = () =>
+  twilio(
+    config.get<ITwilioConfig>('TWILIO').ACCOUNT_SID,
+    config.get<ITwilioConfig>('TWILIO').AUTH_TOKEN
+  );
 
 export function sendTextMessage(numberSender: string, message: string) {
   const twilioClient = twilioInstance();
@@ -11,11 +14,13 @@ export function sendTextMessage(numberSender: string, message: string) {
   return new Promise((resolve, reject) => {
     twilioClient.messages
       .create({
-        from: `whatsapp:+${TWILIO_NUMBER_PHONE}`,
+        from: `whatsapp:+${
+          config.get<ITwilioConfig>('TWILIO').TWILIO_NUMBER_PHONE
+        }`,
         body: message,
         to: `whatsapp:+${numberSender}`,
       })
-      .then(payload => resolve(payload))
-      .catch(error => reject(error));
+      .then((payload) => resolve(payload))
+      .catch((error) => reject(error));
   });
 }
