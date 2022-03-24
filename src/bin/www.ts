@@ -2,11 +2,13 @@ import config from 'config';
 import * as http from 'http';
 
 import app from '../app';
+import { initDatabase } from '../db';
 import { IApiConfig } from '../interfaces/config';
 
 /**
- * Get port from environment and store in Express.
+ * Create local database.
  */
+initDatabase();
 
 /**
  * Normalize a port into a number, string, or false.
