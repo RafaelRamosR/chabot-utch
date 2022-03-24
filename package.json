@@ -4,7 +4,8 @@
   "description": "Chatbot for the degree thesis at the Universidad Tecnológica del Chocó",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/bin/www.ts",
+    "build:dev": "tsc",
+    "dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
