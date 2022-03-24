@@ -10,7 +10,14 @@ export async function whatsappSendMessage(
 ) {
   try {
     const { Body, WaId } = request.body;
-    const { fulfillmentText } = await sendToDialogFlow(Body);
+    const { fulfillmentText } = !Body
+      ? { fulfillmentText: 'MESSAGE_WITHOUT_BODY' }
+      : await sendToDialogFlow(Body);
+
+    if (fulfillmentText.length < 20) {
+      await sendTextMessage(WaId, fulfillmentText);
+      return response.json({ ok: 200 });
+    }
 
     const { messages } = getConnection()
       .get('info')
