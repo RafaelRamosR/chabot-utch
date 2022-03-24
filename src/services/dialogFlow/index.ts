@@ -1,4 +1,5 @@
 import { SessionsClient } from '@google-cloud/dialogflow';
+import { v4 as uuidv4 } from 'uuid';
 import config from 'config';
 import { IDialogFlowConfig } from '../../interfaces/config';
 
@@ -14,7 +15,10 @@ const dialogFlowClient = (): SessionsClient => {
   });
 };
 
-export async function sendToDialogFlow(message: string, session: string) {
+export async function sendToDialogFlow(
+  message: string,
+  session: string = uuidv4()
+) {
   try {
     const sessionClient = dialogFlowClient();
     const sessionPath = sessionClient.projectAgentSessionPath(
