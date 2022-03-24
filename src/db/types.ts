@@ -7,7 +7,10 @@ type Information = {
 type Log = {
   id: string;
   code: string;
-  messages: string[];
+  errorMessage: string;
+  url: string;
+  userMessage: string;
+  userPhoneNumber: string;
 };
 
 export type DatabaseSchema = {
