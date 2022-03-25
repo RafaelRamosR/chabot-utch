@@ -10,18 +10,18 @@ export async function whatsappSendMessage(
 ) {
   try {
     const { Body, WaId } = request.body;
-    const { fulfillmentText } = !Body
-      ? { fulfillmentText: 'MESSAGE_WITHOUT_BODY' }
-      : await sendToDialogFlow(Body);
+    const resultIA = await sendToDialogFlow(Body);
 
-    if (fulfillmentText.length < 20) {
-      await sendTextMessage(WaId, fulfillmentText);
+    if (typeof resultIA === 'string') {
+      await sendTextMessage(WaId, resultIA);
       return response.json({ ok: 200 });
     }
 
+    const { context, payload } = resultIA;
     const { messages } = getConnection()
       .get('info')
-      .find({ code: fulfillmentText })
+      .get(context)
+      .find({ code: payload })
       .value();
 
     for (const message of messages) {
