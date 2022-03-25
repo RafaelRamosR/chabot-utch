@@ -1,10 +1,20 @@
-type Information = {
+type InformationContent = {
   id: string;
   code: string;
+  mainQuestion?: string;
   messages: string[];
 };
 
-type Log = {
+type InfoSchema = {
+  CAREER_CONTEXT: InformationContent[];
+  CERTIFICATE_CONTEXT: InformationContent[];
+  ENROLLMENT_CONTEXT: InformationContent[];
+  GENERAL_CONTEXT: InformationContent[];
+  PLATFORM_CONTEXT: InformationContent[];
+  PROCEDURE_CONTEXT: InformationContent[];
+};
+
+type LogSchema = {
   id: string;
   code: string;
   errorMessage: string;
@@ -14,8 +24,8 @@ type Log = {
 };
 
 export type DatabaseSchema = {
-  info: Information[];
-  log: Log[];
+  info: InfoSchema;
+  log: LogSchema[];
 };
 
 export const initialSchema = {
