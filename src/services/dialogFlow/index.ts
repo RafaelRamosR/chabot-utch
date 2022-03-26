@@ -16,6 +16,19 @@ const dialogFlowClient = (): SessionsClient => {
   });
 };
 
+const createRequest = (message: string, sessionPath: string) => {
+  return  {
+    session: sessionPath,
+    queryInput: {
+      text: {
+        text: message,
+        languageCode:
+          config.get<IDialogFlowConfig>('DIALOG_FLOW').DF_LANGUAGE_CODE,
+      },
+    },
+  };
+}
+
 export async function sendToDialogFlow(
   message: string,
   session: string = nanoid()
@@ -29,16 +42,7 @@ export async function sendToDialogFlow(
     config.get<IDialogFlowConfig>('DIALOG_FLOW').GOOGLE_PROJECT_ID,
     session
   );
-  const request = {
-    session: sessionPath,
-    queryInput: {
-      text: {
-        text: message,
-        languageCode:
-          config.get<IDialogFlowConfig>('DIALOG_FLOW').DF_LANGUAGE_CODE,
-      },
-    },
-  };
+  const request = createRequest(message, sessionPath);
   const responses = await sessionClient.detectIntent(request);
   const result = responses[0].queryResult.fulfillmentMessages[0];
 
