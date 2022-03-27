@@ -25,7 +25,7 @@ export async function whatsappSendMessage(
       .value();
 
     for (const message of messages) {
-      await sendTextMessage(WaId, message.replace(/\\n/g, '\n'));
+      await sendTextMessage(WaId, message);
     }
 
     response.json({ ok: 200 });
