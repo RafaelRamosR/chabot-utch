@@ -2,7 +2,7 @@ type InformationContent = {
   id: string;
   code: string;
   mainQuestion?: string;
-  messages: string[];
+  messages: string[] | [string[]];
 };
 
 type InfoSchema = {
@@ -29,6 +29,13 @@ export type DatabaseSchema = {
 };
 
 export const initialSchema = {
-  info: [],
+  info: {
+    CAREER_CONTEXT: [],
+    CERTIFICATE_CONTEXT: [],
+    ENROLLMENT_CONTEXT: [],
+    GENERAL_CONTEXT: [],
+    PLATFORM_CONTEXT: [],
+    PROCEDURE_CONTEXT: [],
+  },
   log: [],
-}
+};
