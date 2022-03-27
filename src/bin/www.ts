@@ -3,7 +3,7 @@ import * as http from 'http';
 
 import app from '../app';
 import { initDatabase } from '../db';
-import { IApiConfig } from '../interfaces/config';
+import { IApiConfig } from '../interfaces';
 
 /**
  * Create local database.

@@ -1,8 +1,11 @@
 import { SessionsClient } from '@google-cloud/dialogflow';
 import { nanoid } from 'nanoid';
 import config from 'config';
-import { IDialogFlowConfig } from '../../interfaces/config';
-import { IAResponseContext, IIAResponse } from '../../interfaces/botResponse';
+import {
+  IDialogFlowConfig,
+  IAResponseContext,
+  IIAResponse,
+} from '../../interfaces';
 
 const dialogFlowClient = (): SessionsClient => {
   return new SessionsClient({
@@ -17,7 +20,7 @@ const dialogFlowClient = (): SessionsClient => {
 };
 
 const createRequest = (message: string, sessionPath: string) => {
-  return  {
+  return {
     session: sessionPath,
     queryInput: {
       text: {
@@ -27,7 +30,7 @@ const createRequest = (message: string, sessionPath: string) => {
       },
     },
   };
-}
+};
 
 export async function sendToDialogFlow(
   message: string,
