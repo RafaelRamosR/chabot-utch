@@ -6,7 +6,8 @@ import cors from 'cors';
 import helmet from 'helmet';
 
 import routes from './routes';
-import { IApiConfig } from './interfaces/config';
+import { IApiConfig } from './interfaces';
+import errorHandler from './middleware/errorHandler';
 
 const app = express();
 
@@ -23,5 +24,6 @@ app.use(cors({
 }));
 
 app.use(config.get<IApiConfig>('API').API_VERSION, routes);
+app.use(errorHandler);
 
 export default app;

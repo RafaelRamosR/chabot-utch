@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { sendTextMessage } from '../../services/twilio';
 import { sendToDialogFlow } from '../../services/dialogFlow';
+import { getConnection } from '../../db';
 
 export async function whatsappSendMessage(
   request: Request,
@@ -9,10 +10,23 @@ export async function whatsappSendMessage(
 ) {
   try {
     const { Body, WaId } = request.body;
-    const { fulfillmentText } = await sendToDialogFlow(Body);
+    const resultIA = await sendToDialogFlow(Body);
 
-    const result = await sendTextMessage(WaId, fulfillmentText);
-    console.log('Result: ', result);
+    if (typeof resultIA === 'string') {
+      await sendTextMessage(WaId, resultIA);
+      return response.json({ ok: 200 });
+    }
+
+    const { context, payload } = resultIA;
+    const { messages } = getConnection()
+      .get('info')
+      .get(context)
+      .find({ code: payload })
+      .value();
+
+    for (const message of messages) {
+      await sendTextMessage(WaId, message);
+    }
 
     response.json({ ok: 200 });
   } catch (error) {

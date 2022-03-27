@@ -1,7 +1,11 @@
 import { SessionsClient } from '@google-cloud/dialogflow';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import config from 'config';
-import { IDialogFlowConfig } from '../../interfaces/config';
+import {
+  IDialogFlowConfig,
+  IAResponseContext,
+  IIAResponse,
+} from '../../interfaces';
 
 const dialogFlowClient = (): SessionsClient => {
   return new SessionsClient({
@@ -15,50 +19,42 @@ const dialogFlowClient = (): SessionsClient => {
   });
 };
 
+const createRequest = (message: string, sessionPath: string) => {
+  return {
+    session: sessionPath,
+    queryInput: {
+      text: {
+        text: message,
+        languageCode:
+          config.get<IDialogFlowConfig>('DIALOG_FLOW').DF_LANGUAGE_CODE,
+      },
+    },
+  };
+};
+
 export async function sendToDialogFlow(
   message: string,
-  session: string = uuidv4()
-) {
-  try {
-    const sessionClient = dialogFlowClient();
-    const sessionPath = sessionClient.projectAgentSessionPath(
-      config.get<IDialogFlowConfig>('DIALOG_FLOW').GOOGLE_PROJECT_ID,
-      session
-    );
-
-    const request = {
-      session: sessionPath,
-      queryInput: {
-        text: {
-          text: message,
-          languageCode:
-            config.get<IDialogFlowConfig>('DIALOG_FLOW').DF_LANGUAGE_CODE,
-        },
-      },
-    };
-    const responses = await sessionClient.detectIntent(request);
-
-    const result = responses[0].queryResult;
-
-    // console.log('INTENT EMPAREJADO: ', result.intent.displayName);
-    let defaultResponses = [];
-    if (result.action !== 'input.unknown') {
-      result.fulfillmentMessages.forEach((element) => {
-        defaultResponses.push(element);
-      });
-    }
-    if (defaultResponses.length === 0) {
-      result.fulfillmentMessages.forEach((element) => {
-        if (element.platform === 'PLATFORM_UNSPECIFIED') {
-          defaultResponses.push(element);
-        }
-      });
-    }
-    result.fulfillmentMessages = defaultResponses;
-    // console.log(JSON.stringify(result, null, ' '));
-    return result;
-  } catch (e) {
-    console.log('error');
-    console.log(e);
+  session: string = nanoid()
+): Promise<string | IIAResponse> {
+  if (!message) {
+    return { context: 'GENERAL_CONTEXT', payload: 'MESSAGE_WITHOUT_BODY' };
   }
+
+  const sessionClient = dialogFlowClient();
+  const sessionPath = sessionClient.projectAgentSessionPath(
+    config.get<IDialogFlowConfig>('DIALOG_FLOW').GOOGLE_PROJECT_ID,
+    session
+  );
+  const request = createRequest(message, sessionPath);
+  const responses = await sessionClient.detectIntent(request);
+  const result = responses[0].queryResult.fulfillmentMessages[0];
+
+  if (result.text) return result.text.text[0];
+
+  const { context, payload } = result.payload.fields;
+
+  return {
+    context: context.stringValue as IAResponseContext,
+    payload: payload.stringValue,
+  };
 }
