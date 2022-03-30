@@ -9,12 +9,12 @@ export async function whatsappSendMessage(
   next: NextFunction
 ) {
   try {
-    const { Body, WaId } = request.body;
+    const { Body, Origin, WaId } = request.body;
     const resultIA = await sendToDialogFlow(Body);
 
     if (typeof resultIA === 'string') {
-      await sendTextMessage(WaId, resultIA);
-      return response.json({ ok: 200 });
+      await sendTextMessage(WaId, resultIA, Origin);
+      return response.json({ multiple: false, message: resultIA });
     }
 
     const { context, payload } = resultIA;
@@ -25,10 +25,10 @@ export async function whatsappSendMessage(
       .value();
 
     for (const message of messages) {
-      await sendTextMessage(WaId, message);
+      await sendTextMessage(WaId, message, Origin);
     }
 
-    response.json({ ok: 200 });
+    response.json({ multiple: true, messages });
   } catch (error) {
     return next(error);
   }
