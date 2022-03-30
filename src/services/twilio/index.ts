@@ -27,8 +27,11 @@ const createMessageOptions = (
 
 export function sendTextMessage(
   numberSender: string,
-  message: string | string[]
+  message: string | string[],
+  origin: string | undefined
 ) {
+  if (!origin) return origin;
+
   const twilioClient = twilioInstance();
   const messageOptions = createMessageOptions(numberSender, message);
 
