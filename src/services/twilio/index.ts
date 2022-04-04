@@ -30,7 +30,7 @@ export function sendTextMessage(
   message: string | string[],
   origin: string | undefined
 ) {
-  if (!origin) return origin;
+  if (origin) return origin;
 
   const twilioClient = twilioInstance();
   const messageOptions = createMessageOptions(numberSender, message);
