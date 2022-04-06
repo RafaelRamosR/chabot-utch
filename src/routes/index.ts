@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import whatsappRoutes from '../api/whatsapp';
+import webhookRoutes from '../api/webhook';
 
 const router = Router();
 
-router.use('/whatsapp', whatsappRoutes);
+router.use('/webhook', webhookRoutes);
 
 export default router;

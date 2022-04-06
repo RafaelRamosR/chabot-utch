@@ -4,7 +4,7 @@ import { sendTextMessage } from '../../services/twilio';
 import { sendToDialogFlow } from '../../services/dialogFlow';
 import { getConnection } from '../../db';
 
-export async function whatsappSendMessage(
+export async function webhookSendMessage(
   request: Request,
   response: Response,
   next: NextFunction
