@@ -20,11 +20,14 @@ const dialogFlowClient = (): SessionsClient => {
 };
 
 const createRequest = (message: string, sessionPath: string) => {
+  const menuWords = ['informacion del programa', 'certificados', 'matricula', 'acceso a plataformas', 'tramites'];
+  const normalizeMsg = message.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const text = !menuWords.includes(normalizeMsg) ? message : `xxx${message}`;
   return {
     session: sessionPath,
     queryInput: {
       text: {
-        text: message,
+        text,
         languageCode:
           config.get<IDialogFlowConfig>('DIALOG_FLOW').DF_LANGUAGE_CODE,
       },
