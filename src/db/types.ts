@@ -3,6 +3,7 @@ type InformationContent = {
   code: string;
   mainQuestion?: string;
   messages: string[] | [string[]];
+  shortQuestion?: string;
 };
 
 type InfoSchema = {
