@@ -1,5 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import config from 'config';
+
+import { getShortQuestions } from './ops';
 import { sendTextMessage } from '../../services/twilio';
 import { sendToDialogFlow } from '../../services/dialogFlow';
 import { getConnection } from '../../db';
@@ -11,7 +13,7 @@ export async function webhookSendMessage(
 ) {
   try {
     const { Body, Origin, WaId } = request.body;
-    const resultIA = await sendToDialogFlow(Body);
+    const resultIA = await sendToDialogFlow(Body, WaId);
 
     if (typeof resultIA === 'string') {
       await sendTextMessage(WaId, resultIA, Origin);
@@ -23,6 +25,17 @@ export async function webhookSendMessage(
     }
 
     const { context, payload } = resultIA;
+
+    if (context === payload) {
+      const shortQuestions = getShortQuestions(context);
+      await sendTextMessage(WaId, shortQuestions, Origin);
+      return response.json({
+        multiple: false,
+        message: shortQuestions,
+        returnFeedback: false,
+      });
+    }
+
     const { messages } = getConnection()
       .get('info')
       .get(context)
