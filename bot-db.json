@@ -1,0 +1,267 @@
+{
+  "info": {
+    "GENERAL_CONTEXT": [
+      {
+        "code": "INITIAL_CONTEXT_STAGE_1",
+        "messages": [
+          "Hola, soy UTChatbot, un bot informátivo 🤖 del programa Ingeniería de Telecomunicaciones e Informática",
+          "Te puedo ayudar con los siguientes temas: \nℹ️ Información del programa. \n📃 Certificados. \n📜 Matrícula. \n💻 Acceso a plataformas. \n☑️ Trámites.",
+          "Hazme una pregunta o elige una opción, recuerda que solo puedo atender un mensaje a la vez 🤧"
+        ]
+      },
+      {
+        "code": "NEGATIVE_FEEDBACK",
+        "messages": [
+          "Lamento no haber solucionado tu duda 😔",
+          "Tu caso será revisado para hacerme más fuerte 🦾, puedes ingresar a https://siac.utch.edu.co para obtener ayuda personalizada."
+        ]
+      },
+      {
+        "code": "POSITIVE_FEEDBACK",
+        "messages": [
+          "Me alegra haberte ayudado 😊"
+        ]
+      },
+      {
+        "code": "MESSAGE_WITHOUT_BODY",
+        "messages": [
+          "Lo siento, por el momento solo entiendo mensajes de texto :("
+        ]
+      },
+      {
+        "code": "CAREER_CONTEXT",
+        "messages": [
+          "Te puedo ayudar con cualquiera de los siguientes datos sobre el programa de Ingeniería de Telecomunicaciones e Informática:"
+        ]
+      },
+      {
+        "code": "CERTIFICATE_CONTEXT",
+        "messages": [
+          "Te puedo dar la mano con para que puedas obtener los siguientes certificados:"
+        ]
+      },
+      {
+        "code": "ENROLLMENT_CONTEXT",
+        "messages": [
+          "Sé que la matrícula es lo más importante para tí, así que preguntame sobre los siguientes datos:"
+        ]
+      },
+      {
+        "code": "PLATFORM_CONTEXT",
+        "messages": [
+          "¿Problemas con las plataformas de la UTCH? Tal vez te pueda ayudar con siguientes temas:"
+        ]
+      },
+      {
+        "code": "PROCEDURE_CONTEXT",
+        "messages": [
+          "¿Vas a realizar alguno de estos procesos?:"
+        ]
+      }
+    ],
+    "CAREER_CONTEXT": [
+      {
+        "code": "CAREER_CONTEXT_STAGE_1",
+        "mainQuestion": "¿Dónde se encuentra el calendario académico?",
+        "messages": [
+          "Puedes encontrar el calendario académico en los siguientes lugares:",
+          "1. En la página institucional. \n2. En la facultad de ingeniería. \n3.En la secretaría general"
+        ],
+        "shortQuestion": "Calendario académico"
+      },
+      {
+        "code": "CAREER_CONTEXT_STAGE_2",
+        "mainQuestion": "¿En qué jornadas puedo estudiar Ingeniería de Telecomunicaciones e Informática en la UTCH?",
+        "messages": [
+          "El programa de Ingeniería de Telecomunicaciones e informática solo está disponible en jornada diurna."
+        ],
+        "shortQuestion": "Jornada académica"
+      },
+      {
+        "code": "CAREER_CONTEXT_STAGE_3",
+        "mainQuestion": "¿En dónde está ubicado el programa de Ingeniería de Telecomunicaciones e Informática de la UTCH?",
+        "messages": [
+          "El programa de encuentra ubicado en la ciudadela universitaria, Bloque 4, piso 1, oficina 109."
+        ],
+        "shortQuestion": "Ubicación del programa"
+      },
+      {
+        "code": "CAREER_CONTEXT_STAGE_4",
+        "mainQuestion": "¿Cuál es la duración del programa?",
+        "messages": [
+          "El programa de Ingeniería de Telecomunicaciones e Informática es un programa tecnológico que tiene una duración de diez (10) semestres, equivalentes a cinco (5) años."
+        ],
+        "shortQuestion": "Duración del programa"
+      },
+      {
+        "code": "CAREER_CONTEXT_STAGE_5",
+        "mainQuestion": "¿Cuál es el horario de estudio?",
+        "messages": [
+          "La jornada de estudio del programa de Ingeniería de Telecomunicaciones e Informática es diurna y el horario de estudio está dispuesto de lunes a sábado de 6:00 a.m. a 12:00 p.m. y de 2:00 p.m. a 6:00 p.m."
+        ],
+        "shortQuestion": "Horario de estudio"
+      },
+      {
+        "code": "CAREER_CONTEXT_STAGE_6",
+        "mainQuestion": "¿Cuántos créditos tiene el plan de estudio?",
+        "messages": [
+          "El plan de estudios de la Ingeniería de Telecomunicaciones e Infomática tiene un total de 157 créditos académicos."
+        ],
+        "shortQuestion": "Créditos académicos"
+      },
+      {
+        "code": "CAREER_CONTEXT_STAGE_7",
+        "mainQuestion": "¿Con qué promedio se gana el semestre?",
+        "messages": [
+          "Para aprobar el semestre necesitas un promedio mínimo de 3.0."
+        ],
+        "shortQuestion": "Nota mínima"
+      }
+    ],
+    "CERTIFICATE_CONTEXT": [
+      {
+        "code": "CERTIFICATE_CONTEXT_STAGE_1",
+        "mainQuestion": "¿Dónde se solicita el certificado de notas?",
+        "messages": [
+          "El certificado de notas se solicita en la oficina de registro y control"
+        ],
+        "shortQuestion": "Solicitar certificado de notas"
+      }
+    ],
+    "ENROLLMENT_CONTEXT": [
+      {
+        "code": "ENROLLMENT_CONTEXT_STAGE_1",
+        "mainQuestion": "¿Cuánto cuesta la matrícula?",
+        "messages": [
+          "La matrícula tiene un costo ordinario de $2'250.000 pesos."
+        ],
+        "shortQuestion": "Costo matrícula"
+      },
+      {
+        "code": "ENROLLMENT_CONTEXT_STAGE_2",
+        "mainQuestion": "¿Cuáles son los requisitos para financiar la matrícula?",
+        "messages": [
+          "Para financiar tu matrícula deberás seguir los siguientes pasos:",
+          "1. El codeudor debe ser empleado público. \n2. Fotocopia de la cédula del codeudor ampliada al 150%. \n3. Constancia laboral del codeudor, donde conste que devenga más de dos (2) salarios mínimos. \n4. En el pagaré debe anotar la dirección completa de donde vive, al igual que su número telefónico celular y/o fijo. \n5. El codeudor debe autenticar el pagaré en la notaría.",
+          "*NOTA:* Si el codeudor es empleado nombrado de la UTCH, no será necesario autenticar el pagaré."
+        ],
+        "shortQuestion": "Financiar matrícula"
+      },
+      {
+        "code": "ENROLLMENT_CONTEXT_STAGE_3",
+        "mainQuestion": "¿Quiénes se ganan la matrícula de honor?",
+        "messages": [
+          "La matrícula con honor la ganan los 2 estudiantes que saquen el promedio más  alto durante el semestre"
+        ],
+        "shortQuestion": "Matrícula de honor"
+      },
+      {
+        "code": "ENROLLMENT_CONTEXT_STAGE_4",
+        "mainQuestion": "¿Cómo obtengo descuento en la matrícula?",
+        "messages": [
+          "En la UTCH puedes obtener dos tipos de descuento en la matrícula:",
+          "1. Descuento del 10% en la matrícula por certificado electoral. \n2.Descuento del 10% en la matrícula por tener hermanos estudiando en la universidad."
+        ],
+        "shortQuestion": "Descuento en la matrícula"
+      },
+      {
+        "code": "ENROLLMENT_CONTEXT_STAGE_5",
+        "mainQuestion": "¿Cuántos créditos puedo matricular por semestre?",
+        "messages": [
+          "El estudiante tiene derecho a 18 créditos máximo por semestre, salvo el quinto semestre que figuran 19 créditos.",
+          "Finalmente si el estudiante obtuvo  un promedio mínimo de  de 4.0 en el semestre anterior tiene derecho a tres créditos más por semestre."
+        ],
+        "shortQuestion": "Créditos por semestre"
+      },
+      {
+        "code": "ENROLLMENT_CONTEXT_STAGE_6",
+        "mainQuestion": "¿Qué pasos debo seguir para la devolución del pago de una matrícula?",
+        "messages": [
+          "Para cancelar la matrícula debes seguir los siguientes pasos:",
+          "1. Presentar solicitud  escrita  a la Jefe Financiera. \n2. Anexar recibo de pago original. \n3. Constancia del Jefe de registro y Control  Académico, en el que indique que el solicitante no acentó matrícula. \n4. Constancia de la dirección del programa, indicando que no asistió a clases.",
+          "*Nota:* Tiempo de respuesta: 5 días hábiles."
+        ],
+        "shortQuestion": "Cancelar matrícula"
+      }
+    ],
+    "PLATFORM_CONTEXT": [
+      {
+        "code": "PLATFORM_CONTEXT_STAGE_1",
+        "mainQuestion": "¿Cómo saber que usuario tengo en la plataforma Academusoft?",
+        "messages": [
+          [
+            "Para saber que usuario tienes asignado como estudiante debes ingresar a la plataforma Academusoft enlace https://académico.utch.edu.co en la opción: *Conoce tu usuario y contraseña*",
+            "https://www.utch.edu.co/portal/images/academico/instructivos-admision-registro-control/estudiante-nuevo-pregrado-3.jpg"
+          ],
+          [
+            "Luego te aparecerá la siguiente ventana, y seleccionas el botón continuar.",
+            "https://www.utch.edu.co/portal/images/academico/instructivos-admision-registro-control/estudiante-nuevo-pregrado-4.jpg"
+          ],
+          [
+            "Luego solicitará tu tipo de documento y número.",
+            "https://www.utch.edu.co/portal/images/academico/instructivos-admision-registro-control/estudiante-nuevo-pregrado-5.jpg"
+          ]
+        ],
+        "shortQuestion": "Usuario Academusoft"
+      },
+      {
+        "code": "PLATFORM_CONTEXT_STAGE_2",
+        "mainQuestion": "¿Cómo restablezco la contraseña por la plataforma Academusoft?",
+        "messages": [
+          "Para que el mismo estudiante pueda restablecer la contraseña en Academusoft a través del link http://academico.utch.edu.co debe haber registrado el correo personal en el portal con anterioridad y seguir las siguientes instrucciones:",
+          [
+            "Selecciona el icono *Recordar contraseña*",
+            "https://www.utch.edu.co/portal/images/academico/instructivos-admision-registro-control/estudiante-nuevo-pregrado-1.jpg"
+          ],
+          [
+            "El sistema le solicitara que ingreses su nombre de usuario para que sea enviada la nueva contraseña a tu correo personal",
+            "https://www.utch.edu.co/portal/images/academico/instructivos-admision-registro-control/estudiante-nuevo-pregrado-2.jpg"
+          ]
+        ],
+        "shortQuestion": "Recuperar contraseña Academusoft"
+      }
+    ],
+    "PROCEDURE_CONTEXT": [
+      {
+        "code": "PROCEDURE_CONTEXT_STAGE_1",
+        "mainQuestion": "¿Cuáles son los pasos para realizar un reingreso?",
+        "messages": [
+          "Para solicitar un reingreso se debe realizar lo siguiente:",
+          "*Primero:* Dirigir una solicitud por escrito al programa para que el Coordinador de campo específico dé el visto bueno.",
+          "*Segundo:* Presentar la solicitud con el visto bueno del Coordinador de campo específico en la oficina de financiera para poder descargar el recibo de pago y luego de cancelarlo.",
+          "*Tercero:* Después de un día hábil de haber realizado el pago, el estudiante debe llevar el recibo a la oficina de registro y control para que lo reingrese.",
+          "*Cuarto:* la oficina de registro y control envía al programa la información del estudiante, para que exprese en que semestre quedará y que asignaturas debe cursar.",
+          "*Quinto:* El programa una vez verifica la información, envía nuevamente a la oficina de registro y control la información académica del estudiante."
+        ],
+        "shortQuestion": "Realizar reingreso"
+      },
+      {
+        "code": "PROCEDURE_CONTEXT_STAGE_2",
+        "mainQuestion": "¿Qué materias se pueden habilitar?",
+        "messages": [
+          "Solo se pueden habilitar materias que no son base de la carrera."
+        ],
+        "shortQuestion": "Materias para habilitar"
+      },
+      {
+        "code": "PROCEDURE_CONTEXT_STAGE_3",
+        "mainQuestion": "¿Qué documentos se requieren para el documento familiar?",
+        "messages": [
+          "Para el documento familiar necesitarás:",
+          "1. Constancia del programa de haber pasado en limpio. \n2. Registro civil de los hermanos o padres, según el caso."
+        ],
+        "shortQuestion": "Requisitos documento familiar"
+      }
+    ]
+  },
+  "log": [
+    {
+      "id": "qKPQSzjJYJpeCBmIyOpHs",
+      "code": "Error",
+      "errorMessage": "{\"status\":400,\"code\":21211,\"moreInfo\":\"https://www.twilio.com/docs/errors/21211\"}",
+      "url": "/api/v1/whatsapp",
+      "userMessage": "wenas",
+      "userPhoneNumber": 2827827
+    }
+  ]
+}
