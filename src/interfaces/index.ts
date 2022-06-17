@@ -1,5 +1,10 @@
 import { IAResponseContext, IIAResponse } from './botResponse';
-import { IApiConfig, IDialogFlowConfig, ITwilioConfig } from './config';
+import {
+  IApiConfig,
+  IDialogFlowConfig,
+  IDialogFlowMotors,
+  ITwilioConfig,
+} from './config';
 import { IMessageOption } from './messages';
 
 export {
@@ -7,6 +12,7 @@ export {
   IIAResponse,
   IApiConfig,
   IDialogFlowConfig,
+  IDialogFlowMotors,
   ITwilioConfig,
-  IMessageOption
-}
+  IMessageOption,
+};

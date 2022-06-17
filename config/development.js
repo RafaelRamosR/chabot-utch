@@ -8,10 +8,26 @@ module.exports = {
     PORT: 8080,
   },
   DIALOG_FLOW: {
-    DF_LANGUAGE_CODE: 'es',
-    GOOGLE_CLIENT_EMAIL: process.env.GOOGLE_CLIENT_EMAIL,
-    GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    GOOGLE_PROJECT_ID: 'bot-test-riip',
+    MOTOR_ONE: {
+      DF_LANGUAGE_CODE: 'es',
+      GOOGLE_CLIENT_EMAIL:
+        'chatbotintegration@bot-test-riip.iam.gserviceaccount.com',
+      GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY_ONE.replace(
+        /\\n/g,
+        '\n'
+      ),
+      GOOGLE_PROJECT_ID: 'bot-test-riip',
+    },
+    MOTOR_TWO: {
+      DF_LANGUAGE_CODE: 'es',
+      GOOGLE_CLIENT_EMAIL:
+        'chatbot-utch-secuencial@bot-secuencial-ngup.iam.gserviceaccount.com',
+      GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY_TWO.replace(
+        /\\n/g,
+        '\n'
+      ),
+      GOOGLE_PROJECT_ID: 'bot-secuencial-ngup',
+    },
   },
   FEEDBACK_MESSAGE: '¿Esta respuesta satisface tu inquietud? 👉👈',
   RESPONSE_WITH_FEEDBACK: [

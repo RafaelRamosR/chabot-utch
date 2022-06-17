@@ -16,3 +16,8 @@ export interface IDialogFlowConfig {
   GOOGLE_PRIVATE_KEY: string;
   GOOGLE_PROJECT_ID: string;
 }
+
+export interface IDialogFlowMotors {
+  MOTOR_ONE: IDialogFlowConfig;
+  MOTOR_TWO: IDialogFlowConfig;
+}
