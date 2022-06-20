@@ -24,9 +24,17 @@ type LogSchema = {
   userPhoneNumber: string;
 };
 
+type UnknownSchema = {
+  id: string;
+  message: string;
+  origin: string;
+  waId: string;
+}
+
 export type DatabaseSchema = {
   info: InfoSchema;
   log: LogSchema[];
+  unknown: UnknownSchema[];
 };
 
 export const initialSchema = {
@@ -39,4 +47,5 @@ export const initialSchema = {
     PROCEDURE_CONTEXT: [],
   },
   log: [],
+  unknown: [],
 };

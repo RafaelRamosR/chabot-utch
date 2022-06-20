@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import config from 'config';
 
-import { getShortQuestions } from './ops';
+import { getShortQuestions, insertUnknowData } from './ops';
 import { sendTextMessage } from '../../services/twilio';
 import { sendToDialogFlow } from '../../services/dialogFlow';
 import { getConnection } from '../../db';
@@ -25,6 +25,14 @@ export async function webhookSendMessage(
     }
 
     const { context, payload } = resultIA;
+
+    if (payload === 'DEFAULT_FALLBACK_INTENT') {      
+      insertUnknowData({
+        message: Body,
+        origin: Origin,
+        waId: WaId
+      });
+    }
 
     if (context === payload) {
       const shortQuestions = getShortQuestions(context);

@@ -37,6 +37,7 @@ module.exports = {
     'PLATFORM_CONTEXT',
     'PROCEDURE_CONTEXT',
   ],
+  SECRET_KEY: process.env.SECRET_KEY,
   TWILIO: {
     ACCOUNT_SID: process.env.ACCOUNT_SID,
     AUTH_TOKEN: process.env.AUTH_TOKEN,

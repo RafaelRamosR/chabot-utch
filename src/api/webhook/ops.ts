@@ -1,3 +1,4 @@
+import { nanoid } from 'nanoid';
 import { getConnection } from '../../db';
 import { IAResponseContext } from '../../interfaces/botResponse';
 
@@ -15,4 +16,19 @@ export function getShortQuestions(context: IAResponseContext): string {
       .map((data, index) => `${index + 1}. ${data.shortQuestion}`)
       .join(' \n')
   );
+}
+
+export function insertUnknowData(unknownData: {
+  message: string,
+  origin: string,
+  waId: string
+}): void {
+  getConnection()
+    .get('unknown')
+    .push({
+      id: nanoid(),
+      message: unknownData.message,
+      origin: unknownData.origin || 'twilio',
+      waId: unknownData.waId,
+    }).write();
 }
