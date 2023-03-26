@@ -18,7 +18,7 @@ export function getShortQuestions(context: IAResponseContext): string {
   );
 }
 
-export function insertUnknowData(unknownData: {
+export function insertUnknownData(unknownData: {
   message: string,
   origin: string,
   waId: string
