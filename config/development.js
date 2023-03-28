@@ -10,8 +10,7 @@ module.exports = {
   DIALOG_FLOW: {
     MOTOR_ONE: {
       DF_LANGUAGE_CODE: 'es',
-      GOOGLE_CLIENT_EMAIL:
-        'chatbotintegration@bot-test-riip.iam.gserviceaccount.com',
+      GOOGLE_CLIENT_EMAIL: process.env.GOOGLE_CLIENT_EMAIL_ONE,
       GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY_ONE.replace(
         /\\n/g,
         '\n'
@@ -20,8 +19,7 @@ module.exports = {
     },
     MOTOR_TWO: {
       DF_LANGUAGE_CODE: 'es',
-      GOOGLE_CLIENT_EMAIL:
-        'chatbot-utch-secuencial@bot-secuencial-ngup.iam.gserviceaccount.com',
+      GOOGLE_CLIENT_EMAIL: process.env.GOOGLE_CLIENT_EMAIL_TWO,
       GOOGLE_PRIVATE_KEY: process.env.GOOGLE_PRIVATE_KEY_TWO.replace(
         /\\n/g,
         '\n'
